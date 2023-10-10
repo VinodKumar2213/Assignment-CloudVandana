@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic Calculator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .calculator {
+      width: 300px;
+      text-align: center;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      margin: 5px;
+    }
+
+    button.operator {
+      background-color: #ff8c00;
+    }
+
+    button.equal {
+      background-color: #4caf50;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="result" placeholder="0" disabled>
+    <div>
+      <button onclick="clearInput()">C</button>
+      <button onclick="appendCharacter('/')">/</button>
+      <button onclick="appendCharacter('*')">*</button>
+      <button onclick="appendCharacter('-')">-</button>
+      <button onclick="appendCharacter(7)">7</button>
+      <button onclick="appendCharacter(8)">8</button>
+      <button onclick="appendCharacter(9)">9</button>
+      <button onclick="appendCharacter('+')">+</button>
+      <button onclick="appendCharacter(4)">4</button>
+      <button onclick="appendCharacter(5)">5</button>
+      <button onclick="appendCharacter(6)">6</button>
+      <button onclick="appendCharacter(1)">1</button>
+      <button onclick="appendCharacter(2)">2</button>
+      <button onclick="appendCharacter(3)">3</button>
+      <button onclick="appendCharacter(0)">0</button>
+      <button onclick="calculateResult()">=</button>
+    </div>
+  </div>
+
+  <script>
+    let result = document.getElementById('result');
+    let equation = '';
+
+    function appendCharacter(character) {
+      equation += character;
+      result.value = equation;
+    }
+
+    function calculateResult() {
+      try {
+        result.value = eval(equation);
+        equation = result.value;
+      } catch (error) {
+        result.value = 'Error';
+        equation = '';
+      }
+    }
+
+    function clearInput() {
+      equation = '';
+      result.value = '0';
+    }
+  </script>
+</body>
+</html>

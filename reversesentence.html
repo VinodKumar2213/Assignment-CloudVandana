@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reverse Words in a Sentence</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 400px;
+      text-align: center;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <input type="text" id="sentence" placeholder="Enter a sentence">
+    <button onclick="reverseWords()">Reverse Words</button>
+    <p id="output"></p>
+  </div>
+
+  <script>
+    function reverseWords() {
+      const sentence = document.getElementById('sentence').value;
+      const reversedSentence = sentence.split(' ').map(word => word.split('').reverse().join('')).join(' ');
+      document.getElementById('output').textContent = reversedSentence;
+    }
+  </script>
+</body>
+</html>

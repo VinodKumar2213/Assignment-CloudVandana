@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sort Array in Descending Order</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <label for="inputArray">Enter comma-separated numbers:</label>
+    <input type="text" id="inputArray" placeholder="e.g., 5, 3, 9, 1, 7">
+    <button onclick="sortDescending()">Sort Descending</button>
+    <p id="output"></p>
+  </div>
+
+  <script>
+    function sortDescending() {
+      const inputArray = document.getElementById('inputArray').value.split(',').map(num => parseInt(num.trim(), 10));
+      
+      if (isNaN(inputArray[0])) {
+        document.getElementById('output').textContent = 'Please enter valid numbers.';
+        return;
+      }
+
+      const sortedArray = inputArray.sort((a, b) => b - a);
+      document.getElementById('output').textContent = 'Sorted Array (Descending): ' + sortedArray.join(', ');
+    }
+  </script>
+</body>
+</html>
